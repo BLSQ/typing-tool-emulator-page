@@ -6,23 +6,23 @@
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
-
 body, html {
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+    background: linear-gradient(135deg, #e0c3fc 0%, #d8b4fa 20%, #d3aef8 40%, #c5a2f5 60%, #a3c4fc 100%);
+    background-blend-mode: soft-light;
+    margin: 0;
 }
 
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the container */
+    width: 20vw;
+    max-width: 30vw;
     padding: 1rem;
 }
+
 
 .card {
     background-color: white;
@@ -31,21 +31,22 @@ body, html {
     padding: 2rem;
     text-align: center;
     width: 100%;
+    overflow: hidden;
 }
 
 .header {
-    text-align: left; /* Align header content to the left */
+    text-align: left;
 }
 
 .header .logo {
-    width: 80px; /* Increase the logo size */
+    width: 80px;
     margin-bottom: 1rem;
-    display: block; /* Makes sure it stays inline properly */
+    display: block;
 }
 
 .header h1 {
     font-size: 1.5rem;
-    color: #3a5ba0; /* Ultramarine blue for header text */
+    color: #3a5ba0;
     margin-bottom: 0.5rem;
 }
 
@@ -64,26 +65,44 @@ body, html {
 .option {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding: 0.75rem 1rem;
     border-radius: 8px;
     background-color: #f0f4ff;
     text-decoration: none;
-    color: #3a5ba0; /* Ultramarine blue for option text */
+    color: #3a5ba0;
     font-size: 1rem;
     transition: background-color 0.3s ease;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .option:hover {
     background-color: #dce5ff;
 }
 
-.flag {
+.option .flag {
+    flex-shrink: 0;
     margin-right: 1rem;
     font-size: 1.2rem;
 }
 
-.arrow {
+.option .text {
+    flex-grow: 1;
+    flex-basis: 80%; /* Give more space to the text area */
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.option .arrow {
+    margin-left: auto;
     font-size: 1.2rem;
-    color: #3a5ba0; /* Ultramarine blue for arrows */
+    color: #3a5ba0;
+}
+
+/* Responsive behavior for smaller screens */
+@media (max-width: 480px) {
+    .option {
+        white-space: normal; /* Allows wrapping on smaller screens */
+    }
 }
