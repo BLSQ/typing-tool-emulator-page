@@ -18,7 +18,7 @@ body, html {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); /* Center the container */
-    width: 50%;
+    width: 70%;
     max-width: fit-content;
     padding: 1rem;
 }
@@ -100,9 +100,3 @@ body, html {
     color: #3a5ba0;
 }
 
-/* Responsive behavior for smaller screens */
-@media (max-width: 480px) {
-    .option {
-        white-space: normal; /* Allows wrapping on smaller screens */
-    }
-}
